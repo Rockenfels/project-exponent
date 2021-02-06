@@ -1,0 +1,8 @@
+<h2>Admin Login - Please login below</h2>
+<%= form_for @admin, class: "" do |f| %>
+    <%= f.label :email, "Email: " %>
+    <%= f.text_field :email %>
+    <%= f.label :password, "Password: " %>
+    <%= f.password_field :password, class: "" %>
+    <%= f.submit %>
+<% end %>

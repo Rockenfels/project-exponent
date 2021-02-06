@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjectExponent</title>
+    <title>Project Exponent</title>
+    
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +11,37 @@
   </head>
 
   <body>
+    <header>
+      <% if logged_in?() %>
+        <nav id="header-nav">
+          <h1 id="nav-title">Lindsay Ockenfels</h1>
+          <ul id="nav-ul">
+            <li><a href="/about">About Lindsay</a></li>
+            <li><a href=<%= short_stories_path %>>Short Stories</a></li>
+            <li><a href=<%= poems_path %>>Poems</a></li>
+            <li><a href=<%= songs_path %>>Songs</a></li>
+            <li><a href=<%= posts_path %>>Blog Posts</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href=<%= new_upload_path %> class="btn btn-lg" id="media-upload">+</a></li>
+          </ul>
+          <% @admin = current_admin() %>
+          <%= button_to "logout", {:controller => :sessions,
+              :action => 'destroy', :id => @admin.id }, :method => :delete %>
+        </nav>
+      <% else %>
+        <nav id="header-nav">
+          <h1 id="nav-title">Lindsay Ockenfels</h1>
+          <ul id="nav-ul">
+            <li><a href="/about">About Lindsay</a></li>
+            <li><a href=<%= short_stories_path %>>Short Stories</a></li>
+            <li><a href=<%= poems_path %>>Poems</a></li>
+            <li><a href=<%= songs_path %>>Songs</a></li>
+            <li><a href=<%= posts_path %>>Blog Posts</a></li>
+            <li><a href="/contact">Contact</a></li>
+          </ul>
+        </nav>
+      <% end %>
+    </header>
     <%= yield %>
   </body>
 </html>
