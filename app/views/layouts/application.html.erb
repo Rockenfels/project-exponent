@@ -32,7 +32,7 @@
 
               <!-- Navbar content add dropdown -->
               <li class="nav-item dropdown">
-                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   +
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -45,7 +45,7 @@
 
               <!-- Navbar admin logout -->
               <% @admin = current_admin() %>
-              <%= button_to "logout", {:controller => :sessions, :action => 'destroy', :id => @admin.id, :class => "nav-item" }, :method => :delete %>
+              <%= button_to "logout", {:controller => :sessions, :action => 'destroy', :id => @admin.id, :class => "nav-item btn btn-danger" }, :method => :delete %>
             </ul>       
           </div>
         </nav>
@@ -68,6 +68,9 @@
               <li class="nav-item"><a href=<%= songs_path %>>Songs</a></li>
               <li class="nav-item"><a href=<%= posts_path %>>Blog Posts</a></li>
               <li class="nav-item"><a href="/contact">Contact</a></li>
+
+              <!-- Admin login button -->
+              <%= button_to "login", {:controller => :sessions, :action => 'new', :class => "nav-item" }, :method => :get %>
             </ul>
           </div>
         </nav>
