@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Project Exponent</title>
+    <title>Lindsay Ockenfels</title>
     
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -13,35 +13,71 @@
   <body>
     <header>
       <% if logged_in?() %>
-        <nav id="header-nav">
-          <h1 id="nav-title">Lindsay Ockenfels</h1>
-          <ul id="nav-ul">
-            <li><a href="/about">About Lindsay</a></li>
-            <li><a href=<%= short_stories_path %>>Short Stories</a></li>
-            <li><a href=<%= poems_path %>>Poems</a></li>
-            <li><a href=<%= songs_path %>>Songs</a></li>
-            <li><a href=<%= posts_path %>>Blog Posts</a></li>
-            <li><a href="/contact">Contact</a></li>
-            <li><a href=<%= new_upload_path %> class="btn btn-lg" id="media-upload">+</a></li>
-          </ul>
-          <% @admin = current_admin() %>
-          <%= button_to "logout", {:controller => :sessions,
-              :action => 'destroy', :id => @admin.id }, :method => :delete %>
+        <!-- Auth navbar -->
+        <nav id="auth-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+          <a href="/" class="navbar-brand"><h1 id="nav-name">Lindsay Ockenfels</h1></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar content -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="nav-ul" class="navbar-nav mr-auto">
+              <li class="nav-item active"><a href="/about">About Lindsay</a></li>
+              <li class="nav-item"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              <li class="nav-item"><a href=<%= poems_path %>>Poems</a></li>
+              <li class="nav-item"><a href=<%= songs_path %>>Songs</a></li>
+              <li class="nav-item"><a href=<%= posts_path %>>Blog Posts</a></li>
+              <li class="nav-item"><a href="/contact">Contact</a></li>
+
+              <!-- Navbar content add dropdown -->
+              <li class="nav-item dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  +
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href=<%= new_poem_path %>>New Poem</a>
+                  <a class="dropdown-item" href=<%= new_post_path %>>New Post</a>
+                  <a class="dropdown-item" href=<%= new_short_story_path %>>New Short Story</a>
+                  <a class="dropdown-item" href=<%= new_song_path %>>New Song</a>
+                </div>
+              </li>
+
+              <!-- Navbar admin logout -->
+              <% @admin = current_admin() %>
+              <%= button_to "logout", {:controller => :sessions, :action => 'destroy', :id => @admin.id, :class => "nav-item" }, :method => :delete %>
+            </ul>       
+          </div>
         </nav>
+
+
       <% else %>
-        <nav id="header-nav">
-          <h1 id="nav-title">Lindsay Ockenfels</h1>
-          <ul id="nav-ul">
-            <li><a href="/about">About Lindsay</a></li>
-            <li><a href=<%= short_stories_path %>>Short Stories</a></li>
-            <li><a href=<%= poems_path %>>Poems</a></li>
-            <li><a href=<%= songs_path %>>Songs</a></li>
-            <li><a href=<%= posts_path %>>Blog Posts</a></li>
-            <li><a href="/contact">Contact</a></li>
-          </ul>
+        <!-- Unauth navbar -->
+         <nav id="auth-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+          <a href="/" class="navbar-brand"><h1 id="nav-name">Lindsay Ockenfels</h1></a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <!-- Navbar content -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul id="nav-ul" class="navbar-nav mr-auto">
+              <li class="nav-item active"><a href="/about">About Lindsay</a></li>
+              <li class="nav-item"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              <li class="nav-item"><a href=<%= poems_path %>>Poems</a></li>
+              <li class="nav-item"><a href=<%= songs_path %>>Songs</a></li>
+              <li class="nav-item"><a href=<%= posts_path %>>Blog Posts</a></li>
+              <li class="nav-item"><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
         </nav>
       <% end %>
     </header>
-    <%= yield %>
+
+    <!-- Page specific content -->
+    <div class="container-fluid" id="yield-field">
+      <%= yield %>
+    </div>
+
   </body>
 </html>

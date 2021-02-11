@@ -9,5 +9,8 @@ Rails.application.routes.draw do
 
   resources :short_stories, :poems, :songs, :posts
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: 'static#index'
+  root to: "static#index"
+
+  get "/about", to: "static#about"
+  get "/contact", to: "static#contact"
 end
