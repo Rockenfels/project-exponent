@@ -3,7 +3,7 @@ class SessionsController < ApplicationController
 
     def new
         @admin = Admin.new()
-        render 'session/login'
+        render 'sessions/login'
     end
 
     def create
@@ -19,6 +19,7 @@ class SessionsController < ApplicationController
     def destroy
         if logged_in?
             session.clear()
+            redirect_to root_path
         else
             redirect_to root_path, alert("You don't have permission to do that.")
         end

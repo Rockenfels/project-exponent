@@ -1,6 +1,10 @@
 module ApplicationHelper
     def current_admin
-        Admin.find(session[:admin_id]) || nil
+        begin
+            Admin.find(session[:admin_id])
+        rescue
+            false
+        end
     end
 
     def logged_in?

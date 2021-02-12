@@ -1,3 +1,3 @@
-lins = Admin.create(username: "Lins", password: "FortheFuture21", password_confirmation: "FortheFuture21")
+lins = Admin.create(email: "lcoffta@gmail.com", password: "Ican21", password_confirmation: "Ican21")
 
-roo = Admin.create(username: "Roo", password: "ShakeandBake21", password_confirmation: "ShakeandBake21")
+roo = Admin.create(email: "ockenfelsr@gmail.com", password: "Overwatch21", password_confirmation: "Overwatch21")

@@ -7,15 +7,17 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Bootstrap 4 Stylesheet -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   </head>
 
   <body>
     <header>
       <% if logged_in?() %>
         <!-- Auth navbar -->
-        <nav id="auth-nav" class="navbar navbar-expand-lg navbar-light bg-light">
-          <a href="/" class="navbar-brand"><h1 id="nav-name">Lindsay Ockenfels</h1></a>
+        <nav id="auth-nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
+          <a href="/" class="navbar-brand"><h3 id="nav-name">Lindsay Ockenfels</h3></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -23,12 +25,12 @@
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="nav-ul" class="navbar-nav mr-auto">
-              <li class="nav-item active"><a href="/about">About Lindsay</a></li>
-              <li class="nav-item"><a href=<%= short_stories_path %>>Short Stories</a></li>
-              <li class="nav-item"><a href=<%= poems_path %>>Poems</a></li>
-              <li class="nav-item"><a href=<%= songs_path %>>Songs</a></li>
-              <li class="nav-item"><a href=<%= posts_path %>>Blog Posts</a></li>
-              <li class="nav-item"><a href="/contact">Contact</a></li>
+              <li class="nav-item btn btn-dark"><a href="/about">About Lindsay</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= poems_path %>>Poems</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= songs_path %>>Songs</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= posts_path %>>Blog Posts</a></li>
+              <li class="nav-item btn btn-dark"><a href="/contact">Contact</a></li>
 
               <!-- Navbar content add dropdown -->
               <li class="nav-item dropdown">
@@ -44,8 +46,7 @@
               </li>
 
               <!-- Navbar admin logout -->
-              <% @admin = current_admin() %>
-              <%= button_to "logout", {:controller => :sessions, :action => 'destroy', :id => @admin.id, :class => "nav-item btn btn-danger" }, :method => :delete %>
+              <%= button_to "logout", logout_path, {class: "nav-item btn btn-danger", method: :delete} %>
             </ul>       
           </div>
         </nav>
@@ -53,7 +54,7 @@
 
       <% else %>
         <!-- Unauth navbar -->
-         <nav id="auth-nav" class="navbar navbar-expand-lg navbar-light bg-light">
+         <nav id="auth-nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
           <a href="/" class="navbar-brand"><h1 id="nav-name">Lindsay Ockenfels</h1></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -62,15 +63,15 @@
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="nav-ul" class="navbar-nav mr-auto">
-              <li class="nav-item active"><a href="/about">About Lindsay</a></li>
-              <li class="nav-item"><a href=<%= short_stories_path %>>Short Stories</a></li>
-              <li class="nav-item"><a href=<%= poems_path %>>Poems</a></li>
-              <li class="nav-item"><a href=<%= songs_path %>>Songs</a></li>
-              <li class="nav-item"><a href=<%= posts_path %>>Blog Posts</a></li>
-              <li class="nav-item"><a href="/contact">Contact</a></li>
+              <li class="nav-item btn btn-dark"><a href="/about">About Lindsay</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= poems_path %>>Poems</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= songs_path %>>Songs</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= posts_path %>>Blog Posts</a></li>
+              <li class="nav-item btn btn-dark"><a href="/contact">Contact</a></li>
 
               <!-- Admin login button -->
-              <%= button_to "login", {:controller => :sessions, :action => 'new', :class => "nav-item" }, :method => :get %>
+              <%= button_to "login", {:controller => :sessions, :action => "new"}, {:class => "nav-item btn btn-success", :method => :get } %>
             </ul>
           </div>
         </nav>
@@ -81,6 +82,8 @@
     <div class="container-fluid" id="yield-field">
       <%= yield %>
     </div>
-
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
