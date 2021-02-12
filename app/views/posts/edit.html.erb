@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <h3>You think Marie Forleo doesn't edit her posts? Please! Upload your changes: </h3>
+    <%= form_for :song do |f| %>
+        <%= render partial: "partials/form", locals: {f: f} %>
+    <% end %>
+</div>

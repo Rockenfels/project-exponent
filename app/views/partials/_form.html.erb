@@ -1,0 +1,9 @@
+<div class="form-group">
+    <%= f.label :title, "Title: " %>
+    <%= f.text_field :title, {class: "form-control", placeholder: "title"} %>
+</div>
+<div class="form-group">
+    <%= f.label :file, "Upload your work: " %>
+    <%= f.file_field :password, class: "form-control" %>
+</div>
+<%= f.submit :Submit, class: "btn btn-primary" %>

@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <h3>The world has been waiting to hear your beautiful voice! Gimme them tunes: </h3>
+    <%= form_for :song do |f| %>
+        <%= render partial: "partials/form", locals: {f: f} %>
+    <% end %>
+</div>

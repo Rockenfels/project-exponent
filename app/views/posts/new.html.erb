@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <h3>Way to crank out a blog post! Share it with everyone:</h3>
+    <%= form_for :post do |f| %>
+        <%= render partial: "partials/form", locals: {f: f} %>
+    <% end %>
+</div>

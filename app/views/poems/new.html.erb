@@ -1,0 +1,6 @@
+<div class="container-fluid">
+    <h3>Your way with words knows no bounds! Tell the world about it:</h3>
+    <%= form_for :poem do |f| %>
+        <%= render partial: "partials/form", locals: {f: f} %>
+    <% end %>
+</div>

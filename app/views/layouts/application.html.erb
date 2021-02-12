@@ -17,7 +17,7 @@
       <% if logged_in?() %>
         <!-- Auth navbar -->
         <nav id="auth-nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a href="/" class="navbar-brand"><h3 id="nav-name">Lindsay Ockenfels</h3></a>
+          <a href="/" class="navbar-brand"><h2 id="nav-name">Lindsay Ockenfels</h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -26,10 +26,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="nav-ul" class="navbar-nav mr-auto">
               <li class="nav-item btn btn-dark"><a href="/about">About Lindsay</a></li>
-              <li class="nav-item btn btn-dark"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              
               <li class="nav-item btn btn-dark"><a href=<%= poems_path %>>Poems</a></li>
-              <li class="nav-item btn btn-dark"><a href=<%= songs_path %>>Songs</a></li>
               <li class="nav-item btn btn-dark"><a href=<%= posts_path %>>Blog Posts</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= songs_path %>>Songs</a></li>
+              
               <li class="nav-item btn btn-dark"><a href="/contact">Contact</a></li>
 
               <!-- Navbar content add dropdown -->
@@ -55,7 +57,7 @@
       <% else %>
         <!-- Unauth navbar -->
          <nav id="auth-nav" class="navbar navbar-expand-lg navbar-dark bg-dark">
-          <a href="/" class="navbar-brand"><h1 id="nav-name">Lindsay Ockenfels</h1></a>
+          <a href="/" class="navbar-brand"><h2 id="nav-name">Lindsay Ockenfels</h2></a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
@@ -64,10 +66,12 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul id="nav-ul" class="navbar-nav mr-auto">
               <li class="nav-item btn btn-dark"><a href="/about">About Lindsay</a></li>
-              <li class="nav-item btn btn-dark"><a href=<%= short_stories_path %>>Short Stories</a></li>
+
               <li class="nav-item btn btn-dark"><a href=<%= poems_path %>>Poems</a></li>
-              <li class="nav-item btn btn-dark"><a href=<%= songs_path %>>Songs</a></li>
               <li class="nav-item btn btn-dark"><a href=<%= posts_path %>>Blog Posts</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= short_stories_path %>>Short Stories</a></li>
+              <li class="nav-item btn btn-dark"><a href=<%= songs_path %>>Songs</a></li>
+              
               <li class="nav-item btn btn-dark"><a href="/contact">Contact</a></li>
 
               <!-- Admin login button -->
